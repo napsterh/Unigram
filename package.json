@@ -1,0 +1,18 @@
+{
+  "name": "unigram",
+  "version": "0.1.0",
+  "description": "Comparte tus fotos con tus amigos de la universidad",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "unigram"
+  ],
+  "author": "Homer Lopez Vidal",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
