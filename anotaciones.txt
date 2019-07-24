@@ -1,0 +1,8 @@
+-browserify> codigo mpodular para correr en los navegadores 
+-babelify> compilador de codigo propio con codigo de las dependencias
+-page.js> para poder rutear nuestras pages signup/signin 
+-scripts> comandos de npm para automatizar al momento de levantar el servidor y otras cosas
+-watchify> escucha por algun cambio para actualizar automaticamente
+-yoyo> para aniadir vistas y poder insertarlo en muestra pagina(document)
+-empty-element> vacia todos los elementos del main y carga los nuevos elemento de signup x ejm
+

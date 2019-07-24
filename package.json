@@ -3,10 +3,6 @@
   "version": "0.1.0",
   "description": "Comparte tus fotos con tus amigos de la universidad",
   "main": "server.js",
-  "scripts": {
-    "build": "gulp",
-    "start": "gulp watch & node server.js"
-  },
   "keywords": [
     "javascript",
     "unigram"
@@ -14,10 +10,12 @@
   "author": "Homer Lopez Vidal",
   "license": "MIT",
   "dependencies": {
+    "empty-element": "^1.0.0",
     "express": "^4.17.1",
     "materialize-css": "^1.0.0",
     "page": "^1.11.4",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "yo-yo": "^1.4.1"
   },
   "devDependencies": {
     "babelify": "^7.3.0",
