@@ -2775,6 +2775,29 @@ process.chdir = function (dir) {
 process.umask = function() { return 0; };
 
 },{}],13:[function(require,module,exports){
+
+var orig = document.title;
+
+exports = module.exports = set;
+
+function set(str) {
+  var i = 1;
+  var args = arguments;
+  document.title = str.replace(/%[os]/g, function(_){
+    switch (_) {
+      case '%o':
+        return orig;
+      case '%s':
+        return args[i++];
+    }
+  });
+}
+
+exports.reset = function(){
+  set(orig);
+};
+
+},{}],14:[function(require,module,exports){
 var bel = require('bel') // turns template tag into DOM elements
 var morphdom = require('morphdom') // efficiently diffs + morphs two DOM elements
 var defaultEvents = require('./update-events.js') // default events to be copied when dom elements update
@@ -2818,7 +2841,7 @@ module.exports.update = function (fromNode, toNode, opts) {
   }
 }
 
-},{"./update-events.js":14,"bel":1,"morphdom":8}],14:[function(require,module,exports){
+},{"./update-events.js":15,"bel":1,"morphdom":8}],15:[function(require,module,exports){
 module.exports = [
   // attribute events (can be set with attributes)
   'onclick',
@@ -2856,7 +2879,7 @@ module.exports = [
   'onfocusout'
 ]
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 var page = require('page');
 
 page('/', function (ctx, next) {
@@ -2864,7 +2887,7 @@ page('/', function (ctx, next) {
     main.innerHTML = '<a href="/signup">Signup</a>';
 });
 
-},{"page":11}],16:[function(require,module,exports){
+},{"page":11}],17:[function(require,module,exports){
 var page = require('page');
 
 require('./homepage');
@@ -2873,7 +2896,7 @@ require('./signin');
 
 page();
 
-},{"./homepage":15,"./signin":18,"./signup":20,"page":11}],17:[function(require,module,exports){
+},{"./homepage":16,"./signin":19,"./signup":21,"page":11}],18:[function(require,module,exports){
 var yo = require('yo-yo');
 
 module.exports = function landing(box) {
@@ -2891,17 +2914,19 @@ module.exports = function landing(box) {
         </div>`;
 };
 
-},{"yo-yo":13}],18:[function(require,module,exports){
+},{"yo-yo":14}],19:[function(require,module,exports){
 var page = require('page');
 var empty = require('empty-element');
 var template = require('./template');
+var title = require('title');
 
 page('/signin', function (ctx, next) {
+    title('Unigram - Signin');
     var main = document.getElementById('main-container');
     empty(main).appendChild(template);
 });
 
-},{"./template":19,"empty-element":3,"page":11}],19:[function(require,module,exports){
+},{"./template":20,"empty-element":3,"page":11,"title":13}],20:[function(require,module,exports){
 var yo = require('yo-yo');
 var landing = require('../landing');
 
@@ -2931,17 +2956,19 @@ var signinForm = yo`<div class="col s12 m7">
                     </div>`;
 module.exports = landing(signinForm);
 
-},{"../landing":17,"yo-yo":13}],20:[function(require,module,exports){
+},{"../landing":18,"yo-yo":14}],21:[function(require,module,exports){
 var page = require('page');
 var empty = require('empty-element');
 var template = require('./template');
+var title = require('title');
 
 page('/signup', function (ctx, next) {
+    title('Unigram - Signup');
     var main = document.getElementById('main-container');
     empty(main).appendChild(template);
 });
 
-},{"./template":21,"empty-element":3,"page":11}],21:[function(require,module,exports){
+},{"./template":22,"empty-element":3,"page":11,"title":13}],22:[function(require,module,exports){
 var yo = require('yo-yo');
 var landing = require('../landing');
 
@@ -2974,4 +3001,4 @@ var signupForm = yo`<div class="col s12 m7">
                     </div>`;
 module.exports = landing(signupForm);
 
-},{"../landing":17,"yo-yo":13}]},{},[16]);
+},{"../landing":18,"yo-yo":14}]},{},[17]);
