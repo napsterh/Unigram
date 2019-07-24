@@ -18,8 +18,11 @@
     "pug": "^2.0.4"
   },
   "devDependencies": {
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.0",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2"
+    "gulp-sass": "^4.0.2",
+    "vinyl-source-stream": "^2.0.0"
   }
 }
