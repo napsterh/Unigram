@@ -2888,24 +2888,48 @@ var title = require('title');
 page('/', function (ctx, next) {
     title('Unigram');
     var main = document.getElementById('main-container');
-    empty(main).appendChild(template);
+
+    var pictures = [{
+        user: {
+            username: 'homer.lopez',
+            avatar: 'https://i.blogs.es/de3e88/steve-jobs/450_1000.png'
+        },
+        url: 'office.jpg',
+        likes: 10,
+        liked: true
+    }, {
+        user: {
+            username: 'homer.lopez',
+            avatar: 'https://i.blogs.es/de3e88/steve-jobs/450_1000.png'
+        },
+        url: 'office.jpg',
+        likes: 2,
+        liked: true
+    }];
+
+    empty(main).appendChild(template(pictures));
 });
 
 },{"./template":17,"empty-element":3,"page":11,"title":13}],17:[function(require,module,exports){
 var yo = require('yo-yo');
 var layout = require('../layout');
+var picture = require('../picture-card');
 
-var template = yo`<div class="container timeline">
-    <div class="row">
-        <div class="col s12 m10 offset-m1 l6 offset-l3">
-            content
+module.exports = function (pictures) {
+    var el = yo`<div class="container timeline">
+        <div class="row">
+            <div class="col s12 m10 offset-m1 l6 offset-l3">
+                ${pictures.map(function (pic) {
+        return picture(pic);
+    })}
+            </div>
         </div>
-    </div>
-</div>`;
+    </div>`;
 
-module.exports = layout(template);
+    return layout(el);
+};
 
-},{"../layout":20,"yo-yo":14}],18:[function(require,module,exports){
+},{"../layout":20,"../picture-card":21,"yo-yo":14}],18:[function(require,module,exports){
 var page = require('page');
 
 require('./homepage');
@@ -2914,7 +2938,7 @@ require('./signin');
 
 page();
 
-},{"./homepage":16,"./signin":21,"./signup":23,"page":11}],19:[function(require,module,exports){
+},{"./homepage":16,"./signin":22,"./signup":24,"page":11}],19:[function(require,module,exports){
 var yo = require('yo-yo');
 
 module.exports = function landing(box) {
@@ -2963,6 +2987,28 @@ module.exports = function layout(content) {
 };
 
 },{"yo-yo":14}],21:[function(require,module,exports){
+var yo = require('yo-yo');
+
+module.exports = function (pic) {
+    return yo`<div class="card">
+        <div class="card-image">
+        <img class="activator" src="${pic.url}">
+        </div>
+        <div class="card-content">
+            <a href="/user/${pic.user.username}" class="card-title">
+                <img src="${pic.user.avatar}" class="avatar" />
+                <span class="username">${pic.user.username}</span>
+            </a>
+            <small class="right time">Hace 1 dia</small>
+            <p>
+                <a class="left" href="#"><i class="fa fa-heart"></i></a>
+                <span class="left likes">${pic.likes} me gusta</span>
+            </p>
+        </div>
+    </div>`;
+};
+
+},{"yo-yo":14}],22:[function(require,module,exports){
 var page = require('page');
 var empty = require('empty-element');
 var template = require('./template');
@@ -2974,7 +3020,7 @@ page('/signin', function (ctx, next) {
     empty(main).appendChild(template);
 });
 
-},{"./template":22,"empty-element":3,"page":11,"title":13}],22:[function(require,module,exports){
+},{"./template":23,"empty-element":3,"page":11,"title":13}],23:[function(require,module,exports){
 var yo = require('yo-yo');
 var landing = require('../landing');
 
@@ -3004,7 +3050,7 @@ var signinForm = yo`<div class="col s12 m7">
                     </div>`;
 module.exports = landing(signinForm);
 
-},{"../landing":19,"yo-yo":14}],23:[function(require,module,exports){
+},{"../landing":19,"yo-yo":14}],24:[function(require,module,exports){
 var page = require('page');
 var empty = require('empty-element');
 var template = require('./template');
@@ -3016,7 +3062,7 @@ page('/signup', function (ctx, next) {
     empty(main).appendChild(template);
 });
 
-},{"./template":24,"empty-element":3,"page":11,"title":13}],24:[function(require,module,exports){
+},{"./template":25,"empty-element":3,"page":11,"title":13}],25:[function(require,module,exports){
 var yo = require('yo-yo');
 var landing = require('../landing');
 
