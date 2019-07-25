@@ -8,7 +8,7 @@ body{
     font-family: Montserrat;
 }
 
-#main-container {
+.landing {
     margin: 30px auto;
 }
 
@@ -30,9 +30,10 @@ body{
     text-align: center; 
 }
 
-.signup-box .unigram {
+.unigram {
     font-family: 'Oleo Script';
     font-size: 56px;
+    color: $secondary-color !important;
 }
 
 .signup-form {
@@ -55,5 +56,16 @@ body{
 }
 
 .signup-form .btn.btn-signup {
-    background-color: #018930;
+    background-color: $secondary-color;
+}
+
+.header {
+    background-color: white;
+    color: $secondary-color;
+    box-shadow: none;
+    border-bottom: 1px solid #edeeee;
+}
+
+.timeline {
+    padding: 30px 0;
 }

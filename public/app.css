@@ -6530,7 +6530,7 @@ body {
   color: #018930;
   font-family: Montserrat; }
 
-#main-container {
+.landing {
   margin: 30px auto; }
 
 .iphone {
@@ -6548,9 +6548,10 @@ body {
   padding: 10px 0;
   text-align: center; }
 
-.signup-box .unigram {
+.unigram {
   font-family: 'Oleo Script';
-  font-size: 56px; }
+  font-size: 56px;
+  color: #018930 !important; }
 
 .signup-form {
   width: 65%;
@@ -6569,3 +6570,12 @@ body {
 
 .signup-form .btn.btn-signup, .signup-form .btn-signup.btn-large, .signup-form .btn-signup.btn-small {
   background-color: #018930; }
+
+.header {
+  background-color: white;
+  color: #018930;
+  box-shadow: none;
+  border-bottom: 1px solid #edeeee; }
+
+.timeline {
+  padding: 30px 0; }
