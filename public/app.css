@@ -6600,8 +6600,19 @@ body {
   line-height: 30px;
   margin-left: 12px; }
 
-.card .i {
+.card i {
   font-size: 30px; }
 
 .card .fa-heart-o {
-  color: #018930; }
+  color: #018930;
+  size: 25px; }
+
+.card .fa-heart {
+  color: #f44336;
+  display: none; }
+
+.card.liked .fa-heart {
+  display: block; }
+
+.card.liked .fa-heart-o {
+  display: none; }

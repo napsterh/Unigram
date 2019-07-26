@@ -97,13 +97,26 @@ $avatar-size: 48px;
     margin-left: 12px;
 }
 
-.card .i {
+.card i {
     font-size: 30px;
 }
 
 .card .fa-heart-o {
     color: $secondary-color;
+    size: 25px;
 }
 
+.card .fa-heart {
+    color: #f44336;
+    display: none;
+}
 
+.card.liked { 
+    .fa-heart{
+        display: block;
+    }
+    .fa-heart-o{
+        display: none;
+    }
+}
 
