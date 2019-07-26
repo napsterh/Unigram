@@ -6591,7 +6591,7 @@ body {
   color: #018930; }
 
 .card small.time {
-  line-height: 48px; }
+  line-height: 0px; }
 
 .card p {
   padding: 20px 0; }
