@@ -14,17 +14,17 @@ page('/', function(ctx, next){
                 avatar:'https://i.blogs.es/de3e88/steve-jobs/450_1000.png'
             },
             url:'office.jpg',
-            likes: 10,
+            likes: 0,
             liked: false,
-            createdAt: new Date()
+            createdAt: new Date().getTime()
         },
         {
             user: {
-                username:'homer.lopez',
+                username:'Juan.vidal',
                 avatar:'https://i.blogs.es/de3e88/steve-jobs/450_1000.png'
             },
             url:'office.jpg',
-            likes: 2,
+            likes: 1,
             liked: true,
             createdAt: new Date().setDate(new Date().getDate() - 10)
         }
@@ -32,5 +32,3 @@ page('/', function(ctx, next){
 
     empty(main).appendChild(template(pictures));
 })
-
-    
