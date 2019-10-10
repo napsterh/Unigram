@@ -1,4 +1,5 @@
 var yo = require('yo-yo');
+var translate = require('../translate');
 
 module.exports = function layout(content){
         return yo`<div>
@@ -7,14 +8,14 @@ module.exports = function layout(content){
                 <div class="container">
                     <div class="row">
                         <div class="col s12 m6 offset-m1">
-                            <a href="/" class="brand-logo unigram">Unigram</a> 
+                            <a href="/" class="brand-logo unigram">Unigram</a>
                         </div>
                         <div class="col s2 m6 push-s10 push-m10">
                             <a href="#" class="btn btn-large btn-flat dropdown-button" data-activates="drop-user">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
                             <ul id="drop-user" class="dropdown-content">
-                                <li><a href="#">Salir</a></li> 
+                                <li><a href="#">${translate.message('logout')}</a></li>
                             </ul>
                         </div>
                     </div>

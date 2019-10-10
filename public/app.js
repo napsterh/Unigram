@@ -16633,6 +16633,33 @@ module.exports = [
 ]
 
 },{}],36:[function(require,module,exports){
+var yo = require('yo-yo');
+var translate = require('../translate');
+
+var el = yo`<footer class="site-footer">
+                <div class="container">
+                    <div class="row">
+                          <div class="col s12 l3 center-align"><a href="#" data-activates="dropdown1" class="dropdown-button btn btn-flat">${translate.message('language')}</a>
+                              <ul class="dropdown-content" id="dropdown1">
+                                <li><a href="#" onclick=${lang.bind(null, 'es')}>${translate.message('spanish')}</a></li>
+                                <li><a href="#" onclick=${lang.bind(null, 'en-US')}>${translate.message('english')}</a></li>
+                              </ul>
+                          </div>
+                            <div class="col s12 l3 push-l6 center-align">© 2019 Unigram
+                            </div>
+                    </div>
+                </div>
+            </footer>`;
+
+function lang(locale) {
+  localStorage.locale = locale;
+  location.reload();
+  return false;
+}
+
+document.body.appendChild(el);
+
+},{"../translate":49,"yo-yo":34}],37:[function(require,module,exports){
 var page = require('page');
 var empty = require('empty-element');
 var template = require('./template');
@@ -16665,7 +16692,7 @@ page('/', function (ctx, next) {
     empty(main).appendChild(template(pictures));
 });
 
-},{"./template":37,"empty-element":3,"page":31,"title":33}],37:[function(require,module,exports){
+},{"./template":38,"empty-element":3,"page":31,"title":33}],38:[function(require,module,exports){
 var yo = require('yo-yo');
 var layout = require('../layout');
 var picture = require('../picture-card');
@@ -16684,7 +16711,7 @@ module.exports = function (pictures) {
     return layout(el);
 };
 
-},{"../layout":40,"../picture-card":41,"yo-yo":34}],38:[function(require,module,exports){
+},{"../layout":41,"../picture-card":42,"yo-yo":34}],39:[function(require,module,exports){
 var page = require('page');
 var moment = require('moment');
 
@@ -16695,10 +16722,11 @@ moment.locale('es');
 require('./homepage');
 require('./signup');
 require('./signin');
+require('./footer');
 
 page();
 
-},{"./homepage":36,"./signin":42,"./signup":44,"moment":27,"moment/locale/es":26,"page":31}],39:[function(require,module,exports){
+},{"./footer":36,"./homepage":37,"./signin":43,"./signup":45,"moment":27,"moment/locale/es":26,"page":31}],40:[function(require,module,exports){
 var yo = require('yo-yo');
 
 module.exports = function landing(box) {
@@ -16716,8 +16744,9 @@ module.exports = function landing(box) {
         </div>`;
 };
 
-},{"yo-yo":34}],40:[function(require,module,exports){
+},{"yo-yo":34}],41:[function(require,module,exports){
 var yo = require('yo-yo');
+var translate = require('../translate');
 
 module.exports = function layout(content) {
     return yo`<div>
@@ -16726,14 +16755,14 @@ module.exports = function layout(content) {
                 <div class="container">
                     <div class="row">
                         <div class="col s12 m6 offset-m1">
-                            <a href="/" class="brand-logo unigram">Unigram</a> 
+                            <a href="/" class="brand-logo unigram">Unigram</a>
                         </div>
                         <div class="col s2 m6 push-s10 push-m10">
                             <a href="#" class="btn btn-large btn-flat dropdown-button" data-activates="drop-user">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
                             <ul id="drop-user" class="dropdown-content">
-                                <li><a href="#">Salir</a></li> 
+                                <li><a href="#">${translate.message('logout')}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -16746,7 +16775,7 @@ module.exports = function layout(content) {
     </div>`;
 };
 
-},{"yo-yo":34}],41:[function(require,module,exports){
+},{"../translate":49,"yo-yo":34}],42:[function(require,module,exports){
 var yo = require('yo-yo');
 var moment = require('moment');
 var translate = require('../translate');
@@ -16785,7 +16814,7 @@ module.exports = function pictureCard(pic) {
     return el;
 };
 
-},{"../translate":48,"moment":27,"yo-yo":34}],42:[function(require,module,exports){
+},{"../translate":49,"moment":27,"yo-yo":34}],43:[function(require,module,exports){
 var page = require('page');
 var empty = require('empty-element');
 var template = require('./template');
@@ -16797,9 +16826,10 @@ page('/signin', function (ctx, next) {
     empty(main).appendChild(template);
 });
 
-},{"./template":43,"empty-element":3,"page":31,"title":33}],43:[function(require,module,exports){
+},{"./template":44,"empty-element":3,"page":31,"title":33}],44:[function(require,module,exports){
 var yo = require('yo-yo');
 var landing = require('../landing');
+var translate = require('../translate');
 
 var signinForm = yo`<div class="col s12 m7">
                         <div class="row">
@@ -16807,27 +16837,27 @@ var signinForm = yo`<div class="col s12 m7">
                                 <h1 class="unigram">Unigram</h1>
                                 <form class="signup-form">
                                     <div class="section">
-                                        <a class="btn btn-fb hide-on-small-only">Iniciar sesión con facebook</a>
-                                        <a class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official"></i> Iniciar sesión</a>
+                                        <a class="btn btn-fb hide-on-small-only">${translate.message('signup.facebook')}</a>
+                                        <a class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official"></i>${translate.message('signup.text')}</a>
                                     </div>
                                         <div class="divider"></div>
                                     <div class="section">
-                                        <input type="text" name="username" placeholder="Nombre de usuario"/>
-                                        <input type="password" name="password" placeholder="Contrasena"/>
-                                        <button class="btn waves-effect waves-light btn-signup" type="submit">Inicia sesión</button>    
+                                        <input type="text" name="username" placeholder="${translate.message('username')}"/>
+                                        <input type="password" name="password" placeholder="${translate.message('password')}"/>
+                                        <button class="btn waves-effect waves-light btn-signup" type="submit">${translate.message('signup.text')}</button>
                                     </div>
                                 </form>
-                            </div>    
+                            </div>
                         </div>
                         <div class="row">
                             <div class="login-box">
-                                No tienes una cuenta? <a href="/signup">Registrate</a> 
+                                ${translate.message('signin.not-have-account')} <a href="/signup">${translate.message('signup.call-to-action')}</a>
                             </div>
                         </div>
                     </div>`;
 module.exports = landing(signinForm);
 
-},{"../landing":39,"yo-yo":34}],44:[function(require,module,exports){
+},{"../landing":40,"../translate":49,"yo-yo":34}],45:[function(require,module,exports){
 var page = require('page');
 var empty = require('empty-element');
 var template = require('./template');
@@ -16839,50 +16869,81 @@ page('/signup', function (ctx, next) {
     empty(main).appendChild(template);
 });
 
-},{"./template":45,"empty-element":3,"page":31,"title":33}],45:[function(require,module,exports){
+},{"./template":46,"empty-element":3,"page":31,"title":33}],46:[function(require,module,exports){
 var yo = require('yo-yo');
 var landing = require('../landing');
+var translate = require('../translate');
 
 var signupForm = yo`<div class="col s12 m7">
                         <div class="row">
                             <div class="signup-box">
                                 <h1 class="unigram">Unigram</h1>
                                 <form class="signup-form">
-                                    <h2>Registrate para ver las fotos de tus amigos de la universidad</h2>
+                                    <h2>${translate.message('signup.subheading')}</h2>
                                     <div class="section">
-                                        <a class="btn btn-fb hide-on-small-only">Iniciar sesion con facebook</a>
-                                        <a class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official"></i> Iniciar sesion</a>
+                                        <a class="btn btn-fb hide-on-small-only">${translate.message('signup.facebook')}</a>
+                                        <a class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official"></i>${translate.message('signup.text')}</a>
                                     </div>
                                         <div class="divider"></div>
-                                    <div class="section">    
-                                        <input type="email" name="email" placeholder="Correo electronico"/>
-                                        <input type="text" name="nombre" placeholder="Nombre completo"/>
-                                        <input type="text" name="username" placeholder="Nombre de usuario"/>
-                                        <input type="password" name="password" placeholder="Contrasena"/>
-                                        <button class="btn waves-effect waves-light btn-signup" type="submit">Registrate</button>    
+                                    <div class="section">
+                                        <input type="email" name="email" placeholder="${translate.message('email')}"/>
+                                        <input type="text" name="nombre" placeholder="${translate.message('fullname')}"/>
+                                        <input type="text" name="username" placeholder="${translate.message('username')}"/>
+                                        <input type="password" name="password" placeholder="${translate.message('password')}"/>
+                                        <button class="btn waves-effect waves-light btn-signup" type="submit">${translate.message('signup.call-to-action')}</button>
                                     </div>
                                 </form>
-                            </div>    
+                            </div>
                         </div>
                         <div class="row">
                             <div class="login-box">
-                                Tienes una cuenta? <a href="/signin">Entrar</a> 
+                                ${translate.message('signup.have-account')} <a href="/signin">${translate.message('signin')}</a>
                             </div>
                         </div>
                     </div>`;
 module.exports = landing(signupForm);
 
-},{"../landing":39,"yo-yo":34}],46:[function(require,module,exports){
+},{"../landing":40,"../translate":49,"yo-yo":34}],47:[function(require,module,exports){
 module.exports = {
-        likes: '{ likes, plural, ' + '=0 { no likes }' + '=1 { # like }' + ' other { # likes }}'
-};
-
-},{}],47:[function(require,module,exports){
-module.exports = {
-    likes: '{ likes, number } me gusta'
+        likes: '{ likes, plural, ' + '=0 { no likes }' + '=1 { # like }' + ' other { # likes }}',
+        'logout': 'Logout',
+        'english': 'English',
+        'spanish': 'Spanish',
+        'signup.subheading': 'signup to watch your friends\' studying at URP',
+        'signup.facebook': 'Signup with facebook',
+        'signup.text': 'Signup',
+        'email': 'Email',
+        'username': 'Username',
+        'fullname': 'Fullname',
+        'password': 'Password',
+        'signup.call-to-action': 'Signup',
+        'signup.have-account': 'Already have account?',
+        'signin': 'Signin',
+        'signin.not-have-account': 'Don\'t have account?',
+        'language': 'Language'
 };
 
 },{}],48:[function(require,module,exports){
+module.exports = {
+    'likes': '{ likes, number } me gusta',
+    'logout': 'Salir',
+    'english': 'Inglés',
+    'spanish': 'Español',
+    'signup.subheading': 'Registrate para ver fotos de tus amigos estudiando en la URP',
+    'signup.facebook': 'Iniciar sesión con facebook',
+    'signup.text': 'Iniciar sesion',
+    'email': 'Correo electronico',
+    'username': 'nombre de Usuario',
+    'fullname': 'Nombre completo',
+    'password': 'contraseña',
+    'signup.call-to-action': 'Registrate',
+    'signup.have-account': 'Tienes una cuenta?',
+    'signin': 'Entrar',
+    'signin.not-have-account': 'No tienes una cuenta?',
+    'language': 'Idioma'
+};
+
+},{}],49:[function(require,module,exports){
 if (!window.Intl) {
     window.Intl = require('intl');
     require('intl/locale-data/jsonp/en-US.js');
@@ -16904,7 +16965,7 @@ var MESSAGES = {};
 MESSAGES.es = es;
 MESSAGES['en-US'] = en;
 
-var locale = 'es';
+var locale = localStorage.locale || 'es';
 
 module.exports = {
     message: function (text, opts = {}) {
@@ -16913,4 +16974,4 @@ module.exports = {
     }
 };
 
-},{"./en-US":46,"./es":47,"intl":22,"intl-messageformat":18,"intl-relative-time-format":19,"intl-relative-time-format/locale-data/en":20,"intl-relative-time-format/locale-data/es":21,"intl/locale-data/jsonp/en-US.js":24,"intl/locale-data/jsonp/es.js":25}]},{},[38]);
+},{"./en-US":47,"./es":48,"intl":22,"intl-messageformat":18,"intl-relative-time-format":19,"intl-relative-time-format/locale-data/en":20,"intl-relative-time-format/locale-data/es":21,"intl/locale-data/jsonp/en-US.js":24,"intl/locale-data/jsonp/es.js":25}]},{},[39]);
