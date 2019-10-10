@@ -9,3 +9,4 @@
 -moment.js> para agregar una fecha de publicacion relativa ejem: hace un segundo. hace un mes, etc.
 -intl-messageformat> Para cambiar el idioma de los textos
 -intl-formatJS > Para internacionalizar el proyecto, cambiar idioma de textos
+-superagent > para hacer consultas API
