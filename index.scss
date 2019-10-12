@@ -19,6 +19,7 @@ body{
 .site-footer {
     text-transform: uppercase;
     font-size: 12px;
+    color: black;
 }
 
 .login-box,
@@ -27,7 +28,7 @@ body{
     border: 1px solid #edeeee;
     border-radius: 3px;
     padding: 10px 0;
-    text-align: center; 
+    text-align: center;
 }
 
 .unigram {
@@ -81,7 +82,7 @@ $avatar-size: 48px;
 }
 
 .card .username {
-    color: $secondary-color;    
+    color: $secondary-color;
 }
 
 .card small.time {
@@ -111,7 +112,7 @@ $avatar-size: 48px;
     display: none;
 }
 
-.card.liked { 
+.card.liked {
     .fa-heart{
         display: block;
     }
@@ -119,4 +120,3 @@ $avatar-size: 48px;
         display: none;
     }
 }
-

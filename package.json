@@ -10,6 +10,7 @@
   "author": "Homer Lopez Vidal",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.19.0",
     "empty-element": "^1.0.0",
     "express": "^4.17.1",
     "intl": "^1.2.5",
