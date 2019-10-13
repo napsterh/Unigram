@@ -6,7 +6,7 @@ var request = require('superagent');
 var header = require('../header');
 var axios = require('axios');
 
-page('/', header, asyncLoad, function(ctx, next){
+page('/', header, loadPicturesAxios, function(ctx, next){
     title('Unigram');
     var main = document.getElementById('main-container');
 

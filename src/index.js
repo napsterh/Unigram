@@ -1,4 +1,4 @@
-require('@babel/polyfill');
+require('babel-polyfill');
 var page = require('page');
 var moment = require('moment');
 
