@@ -10,3 +10,7 @@
 -intl-messageformat> Para cambiar el idioma de los textos
 -intl-formatJS > Para internacionalizar el proyecto, cambiar idioma de textos
 -superagent > para hacer consultas API
+-fitch > consultas API nativas
+-axios > consultas API get, post
+-multer > proporciona metodos para cargar fotos, archivos y poder grabarlo en el disco duro
+ 
