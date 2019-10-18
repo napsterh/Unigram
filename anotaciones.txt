@@ -3,7 +3,7 @@
 -page.js> para poder rutear nuestras pages signup/signin
 -scripts> comandos de npm para automatizar al momento de levantar el servidor y otras cosas
 -watchify> escucha por algun cambio para actualizar automaticamente
--yoyo> para aniadir vistas y poder insertarlo en muestra pagina(document)
+-yoyo> para añadir vistas y poder insertarlo en muestra pagina(document)
 -empty-element> vacia todos los elementos del main y carga los nuevos elemento de signup x ejm
 -title> cambiar el titulo dinamicamente de signin, signup u otros
 -moment.js> para agregar una fecha de publicacion relativa ejem: hace un segundo. hace un mes, etc.
@@ -13,4 +13,6 @@
 -fitch > consultas API nativas
 -axios > consultas API get, post
 -multer > proporciona metodos para cargar fotos, archivos y poder grabarlo en el disco duro
- 
+-jwt > json web tokens: Para transmitir informacion de forma segura entre las partes
+-lets encrypt > certificado SSL free 
+
