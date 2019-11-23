@@ -71,7 +71,7 @@ app.post('/api/pictures', function (req, res){
 app.get('/api/user/:username', function(req, res){//devolvera los datos del usuario
     const user = {
         username: 'napster.lopez',
-        avatar: 'https://pbs.twimg.com/profile_images/580189281903341568/5huRywbZ_400x400.jpg',
+        avatar: 'https://avatars2.githubusercontent.com/u/37810245?s=400&u=5da66b632546c062b8d2b2c9571424ef1ff7c9f0&v=4',
         pictures: [
             {
                 id: 1,
