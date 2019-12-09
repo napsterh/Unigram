@@ -6,13 +6,20 @@ var request = require('superagent');
 var header = require('../header');
 var axios = require('axios');
 
-page('/', header, loadPicturesAxios, function(ctx, next){
+page('/', header, loading, loadPicturesAxios, function(ctx, next){
     title('Unigram');
     var main = document.getElementById('main-container');
 
 
     empty(main).appendChild(template(ctx.pictures));
 })
+
+function loading(ctx, next){
+  var el = document.createElement('div');
+  el.classList.add('loader'); 
+  document.getElementById('main-container').appendChild(el);
+  next();
+}
 
 function loadPictures(ctx, next){
   request
