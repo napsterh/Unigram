@@ -126,6 +126,10 @@ app.get('/:username', function(req, res){//crea la ruta desde el servidor(para n
     res.render('index', { title: `Unigram - ${req.params.username}`})//el index retorna el index.pug
 })
 
+app.get('/:username/:id', function(req, res){//crea la ruta desde el servidor(para no mostrar el Cannot GET /homer.lopez de error)
+    res.render('index', { title: `Unigram - ${req.params.username}`})//el index retorna el index.pug
+})
+
 app.listen(3000, function(err){
     if(err) return console.log('Hubo un error'), process.exit(1);
     console.log('Unigram se esta ejecutando en el puerto 3000');

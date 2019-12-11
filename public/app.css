@@ -6741,3 +6741,10 @@ body {
     .user-page .picture-container .fa-heart {
       margin-right: 8px;
       display: inline-block; }
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%; }
+
+.modal .fa-heart {
+  display: inline-block; }
