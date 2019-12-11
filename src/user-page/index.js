@@ -16,6 +16,7 @@ page('/:username/:id', header, loadUser, function(ctx, next){
     empty(main).appendChild(template(ctx.user));
     $(`#modal${ctx.params.id}`).openModal();
     //$(`#modal${ctx.params.id}`).modal('open');
+
 }) ;
 
 async function loadUser (ctx, next){
@@ -26,3 +27,5 @@ async function loadUser (ctx, next){
         console.log(err)
     }
 }
+
+
