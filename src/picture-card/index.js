@@ -45,7 +45,7 @@ module.exports = function pictureCard(pic){
         setTimeout(function (){
             pic.likedHeart = false;
             doRender();
-            }, 1500)
+            }, 1000)
 
         return false;
     }

@@ -39,7 +39,7 @@ app.get('/api/pictures', function(req, res){
               username:'homer.lopez',
               avatar:'https://i.blogs.es/de3e88/steve-jobs/450_1000.png'
           },
-          url:'office.jpg',
+          url:'rusia.png',
           likes: 0,
           liked: false,
           createdAt: new Date().getTime()
@@ -49,7 +49,7 @@ app.get('/api/pictures', function(req, res){
               username:'Juan.vidal',
               avatar:'https://i.blogs.es/de3e88/steve-jobs/450_1000.png'
           },
-          url:'office.jpg',
+          url:'hack.jpg',
           likes: 1,
           liked: true,
           createdAt: new Date().setDate(new Date().getDate() - 10)
