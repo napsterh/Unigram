@@ -11,7 +11,7 @@ var el = yo`<footer class="site-footer">
                                   <li><a href="#" onclick=${lang.bind(null, 'en-US')}>${translate.message('english')}</a></li>
                                 </ul>
                           </div>
-                          <div class="col s12 l3 push-l6 center-align">© 2019 Unigram
+                          <div class="col s12 l3 push-l6 center-align">© 2020 Unigram
                           </div>
                     </div>
                 </div>
