@@ -18,7 +18,7 @@
     "intl-messageformat": "^6.0.0",
     "intl-relative-time-format": "^1.0.7",
     "materialize-css": "^1.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "multer": "^1.4.2",
     "node": "^11.15.0",
     "page": "^1.11.4",
